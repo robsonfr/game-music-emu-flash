@@ -166,6 +166,17 @@
 			});
 			kssButton.visible = true;
 			
+			var vgzButton:PushButton;
+			vgzButton = new PushButton(this, 10, 190, "Play VGZ", function (e:Event):void 
+			{
+				if ( gameMusicEmu.isPlaying ) {
+					gameMusicEmu.stop();
+				}
+				gameMusicEmu.init(EmulatorType.VGZ);
+				gameMusicEmu.load("Phantasy Star - Battle.vgz");
+			});
+			vgzButton.visible = true;
+			
 			var openButton:PushButton;
 			openButton = new PushButton(this, 10, 320 - 90, "Open SPC file...", function (e:Event):void 
 			{
