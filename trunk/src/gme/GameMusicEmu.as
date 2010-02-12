@@ -357,6 +357,12 @@
 			data.endian = Endian.LITTLE_ENDIAN;
 			data.position = 0;
 			
+			// uncompress data if EmulatorType is VGZ.
+			if (_emulatorType == EmulatorType.VGZ) {
+				data.writeBytes(data, 10, data.length - 10);
+				data.inflate();
+			}
+			
 			_libgme.load(data, data.length);
 			
 			// dispatch event to parent
